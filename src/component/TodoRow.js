@@ -2,6 +2,7 @@ import React from 'react'
 import {
      AiFillEdit,
      AiFillDelete,
+     AiOutlineSend
 } from "react-icons/ai";
 import { useState } from "react";
 
@@ -14,7 +15,7 @@ const TodoRow = (props) => {
      const [open, setOpen] = useState(false)
      return (
           <>
-               <div className='flex justify-around bg-blue-100 '>
+               <div className='flex items-center justify-around bg-slate-200'>
                     <div className='w-1/2 border-r'>TODO:{row.content}</div>
                     <div>TIME: {row.date}</div>
                     <div className='flex'>
@@ -46,7 +47,7 @@ const TodoRow = (props) => {
                               className='w-5 h5 hover:text-slate-500' />
                     </div>
                </div>
-               {open ? (<div className='flex'>
+               {open ? (<div className='flex items-center px-3 my-2'>
                     <input
                          type="text"
                          className='w-1/2 border-2 '
@@ -67,7 +68,7 @@ const TodoRow = (props) => {
                               setDate(e.target.value)
                          }}
                     />
-                    <AiFillEdit onClick={() => {
+                    <AiOutlineSend  onClick={() => {
                          //抓取目前row id
                          const { id } = row;
                          //複製todo 清單
@@ -88,7 +89,7 @@ const TodoRow = (props) => {
                          // //儲存副本+
                          // localStorage.setItem("data", newRowsStr)
 
-                    }} className='w-5 h-5' />
+                    }} className='w-8 h-8' />
                </div>) : (<></>)}
 
           </>
